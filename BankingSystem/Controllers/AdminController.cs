@@ -69,5 +69,12 @@ namespace JobWebApi.Controllers
             JobService.RemoveUser(id);
             return RedirectToAction("Index", "Admin");
         }
+
+        [HttpGet]
+        public ActionResult TransactionHistory()
+        {
+            ViewBag.history = JobService.GetAdminTransactionHistory();
+            return View(ViewBag.history);
+        }
     }
 }

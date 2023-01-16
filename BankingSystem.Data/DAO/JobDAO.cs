@@ -98,6 +98,36 @@ namespace Job.Data.DAO
             context.SaveChanges();
         }
 
+        public List<MyTransactionsDto> GetAdminTransactionHistory(JobContext context)
+        {
+            List<MyTransactionsDto> myTransactionsDtos = new List<MyTransactionsDto>();
+            var alltransactions = context.Transactions.ToList();
+
+            foreach (var item in alltransactions)
+            {
+                App_User transactionTo = new App_User();
+                if (item.TransactionTo != null)
+                {
+                    transactionTo = context.AppUsers.Where(b => b.IdentityId == item.TransactionTo).SingleOrDefault();
+                }
+
+                App_User transactionBy = new App_User();
+                if (item.TransactionBy != null)
+                {
+                    transactionBy = context.AppUsers.Where(b => b.IdentityId == item.TransactionBy).SingleOrDefault();
+                }
+                MyTransactionsDto myTransactionsDto = new MyTransactionsDto();
+                myTransactionsDto.AccountNumber = transactionTo.AccountNumber;
+                myTransactionsDto.AmountToBeProcessed = item.AmountToBeProcessed;
+                myTransactionsDto.TransactionType = item.TransactionType;
+                myTransactionsDto.TransactionDate = item.TransactionDate;
+                myTransactionsDto.CurrentBalance = transactionBy.CurrentBalance;
+                myTransactionsDto.TransactionTo = transactionTo?.FirstName + " " + transactionTo?.LastName;
+                myTransactionsDto.TransactionBy = transactionBy.FirstName + " " + transactionBy.LastName;
+                myTransactionsDtos.Add(myTransactionsDto);
+            }
+            return myTransactionsDtos;
+        }
         public void AddUser(JobContext context, App_User app_User)
         {
             context.AppUsers.Add(app_User);

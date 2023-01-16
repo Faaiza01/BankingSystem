@@ -83,6 +83,13 @@ namespace Job.Services.Service
             }
         }
 
+        public IList<MyTransactionsDto> GetAdminTransactionHistory()
+        {
+            using (var context = new JobContext())
+            {
+                return JobDAO.GetAdminTransactionHistory(context);
+            }
+        }
         public void WithDrawCash(DepositCashDto depositCashDto, string userId)
         {
             using (var context = new JobContext())

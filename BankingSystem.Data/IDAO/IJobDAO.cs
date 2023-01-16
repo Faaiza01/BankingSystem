@@ -16,6 +16,7 @@ namespace Job.Data.IDAO
         void DepositCash(JobContext context, Transaction transaction);
         void WithDrawCash(JobContext context, Transaction transaction);
         List<MyTransactionsDto> GetTransactionHistory(JobContext context, string id);
+        List<MyTransactionsDto> GetAdminTransactionHistory(JobContext context);
         void AddJob(JobContext context, Employer employer);
         void EditJob(JobContext context, Employer employer, int jobId);
         void AddUser(JobContext context, App_User app_User);

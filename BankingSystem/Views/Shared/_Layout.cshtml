@@ -62,7 +62,8 @@
                     @if ((Session["Data"] as App_User)?.Role == "Admin")
                     {
                 <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                                        <li>@Html.ActionLink("Manage Customer", "Index", "Admin", new { area = "" }, null)</li>}
+                                        <li>@Html.ActionLink("Manage Customer", "Index", "Admin", new { area = "" }, null)</li>
+                                        <li>@Html.ActionLink("Transaction History", "TransactionHistory", "Admin", new { area = "" }, null)</li>}
                 </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li>
