@@ -42,15 +42,17 @@
                 <ul class="nav navbar-nav ">
                     @if ((Session["Data"] as App_User)?.Role == "Employer")
                     {
-                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                        <li>@Html.ActionLink("Post a Job", "Index", "PostJob", new { area = "" }, null)</li>
-                        <li>@Html.ActionLink("Employer Dashboard", "Index", "Employer", new { area = "" }, null)</li>
-                        <li>@Html.ActionLink("List of Applicants ", "Index", "Applicant", new { area = "" }, null)</li>
-                     }
+                <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                                        <li>@Html.ActionLink("Post a Job", "Index", "PostJob", new { area = "" }, null)</li>
+                                                                <li>@Html.ActionLink("Employer Dashboard", "Index", "Employer", new { area = "" }, null)</li>
+                                                                                        <li>@Html.ActionLink("List of Applicants ", "Index", "Applicant", new { area = "" }, null)</li>}
                     @if ((Session["Data"] as App_User)?.Role == "Customer")
-                    {  
-                      <li>@Html.ActionLink("Deposit Cash", "Index", "Transaction", new { area = "" }, null)</li>
-                    }
+                    {
+                <li>@Html.ActionLink("Deposit Cash", "Index", "Transaction", new { area = "" }, null)</li>
+
+                                        <li>@Html.ActionLink("WithDraw Cash", "WithDraw", "Transaction", new { area = "" }, null)</li>
+
+                                                                <li>@Html.ActionLink("Deposit Cash", "Index", "Transaction", new { area = "" }, null)</li>                    }
                     @if ((Session["Data"] as App_User)?.Role == "JobSeeker")
                     {
                 <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
@@ -61,8 +63,6 @@
                     {
                 <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
                                         <li>@Html.ActionLink("Admin", "Index", "Admin", new { area = "" }, null)</li>}
-
-
                 </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li>

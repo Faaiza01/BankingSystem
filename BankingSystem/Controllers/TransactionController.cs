@@ -54,5 +54,24 @@ namespace Job.Controllers
             }
         }
 
+        public ActionResult WithDraw()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult WithDrawCash(DepositCashDto depositCashDto)
+        {
+            try
+            {
+                var userId = User.Identity.GetUserId();
+                JobService.WithDrawCash(depositCashDto, userId);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
+        }
     }
 }

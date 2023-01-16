@@ -12,6 +12,7 @@ namespace Job.Data.IDAO
     {
         Employer GetJob(JobContext context, int id);
         void DepositCash(JobContext context, Transaction transaction);
+        void WithDrawCash(JobContext context, Transaction transaction);
         void AddJob(JobContext context, Employer employer);
         void EditJob(JobContext context, Employer employer, int jobId);
         void AddUser(JobContext context, App_User app_User);

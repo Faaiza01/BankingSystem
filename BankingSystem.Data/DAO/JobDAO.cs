@@ -47,6 +47,17 @@ namespace Job.Data.DAO
             context.SaveChanges();
         }
 
+        public void WithDrawCash(JobContext context, Transaction transaction)
+        {
+            context.Transactions.Add(transaction);
+            context.SaveChanges();
+
+
+            var transactionBy = context.AppUsers.Where(x => x.IdentityId == transaction.TransactionBy).FirstOrDefault();
+            context.AppUsers.Find(transactionBy.UserId).CurrentBalance = transactionBy.CurrentBalance - transaction.AmountToBeProcessed;
+            context.SaveChanges();
+        }
+
         public void WithDraw(JobContext context, Employer employer)
         {
             context.Employers.Add(employer);

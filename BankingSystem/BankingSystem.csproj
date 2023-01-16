@@ -276,6 +276,7 @@
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Transaction\index.cshtml" />
     <Content Include="Views\Applicant\Index.cshtml" />
+    <Content Include="Views\Transaction\WithDraw.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -14,6 +14,7 @@ namespace Job.Services.IService
         Employer GetJob(int id);
         void AddJob(PostJobDto postJobDto, string userId);
         void DepositCash(DepositCashDto depositCashDto, string userId);
+        void WithDrawCash(DepositCashDto depositCashDto, string userId);
         void AddUser(App_User app_User);
         void EditJob(PostJobDto postJobDto, string userId, int id);
         void DeleteJob(int id);
