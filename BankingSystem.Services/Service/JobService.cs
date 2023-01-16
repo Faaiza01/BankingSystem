@@ -55,23 +55,22 @@ namespace Job.Services.Service
             }  
         }
 
-        public void WithDraw(WithDrawCashDto withDrawCashDto, string userId)
+        public void DepositCash(DepositCashDto depositCashDto, string userId)
         {
          
 
             using (var context = new JobContext())
             {
-                var transactionTo = context.AppUsers.Where(x => x.AccountNumber == withDrawCashDto.AccountNumber).Select(x => x.IdentityId).FirstOrDefault();
+                var transactionTo = context.AppUsers.Where(x => x.AccountNumber == depositCashDto.AccountNumber).Select(x => x.IdentityId).FirstOrDefault();
                 Transaction transaction = new Transaction()
                 {
-                    AmountToBeProcessed = withDrawCashDto.Amount,
+                    AmountToBeProcessed = depositCashDto.Amount,
                     TransactionTo  = transactionTo,
                     TransactionBy = userId,
-                    TransactionType = "WithDraw",
+                    TransactionType = "Deposit",
                     TransactionDate = System.DateTime.Now
-
                 };
-                JobDAO.WithDraw(context, transaction);//Add job
+                JobDAO.DepositCash(context, transaction);//Add job
                 context.SaveChanges();
             }
         }

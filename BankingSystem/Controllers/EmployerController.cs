@@ -42,20 +42,6 @@ namespace Job.Controllers
             }
         }
 
-        [HttpPost]
-        public ActionResult WithDraw(WithDrawCashDto withDrawCashDto)
-        {
-            try
-            {
-                var userId = User.Identity.GetUserId();
-                JobService.WithDraw(withDrawCashDto, userId);
-                return RedirectToAction("Index");
-            }
-            catch (Exception ex)
-            {
-                return View();
-            }
-        }
 
         //GET: EditJob/Edit
         public ActionResult EditJob(int id)

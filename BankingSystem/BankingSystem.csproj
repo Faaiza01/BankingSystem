@@ -180,7 +180,7 @@
     <Compile Include="Controllers\JobDashboard.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\EmployerController.cs" />
-    <Compile Include="Controllers\PostJobController.cs" />
+    <Compile Include="Controllers\TransactionController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
@@ -274,7 +274,7 @@
     <Content Include="Views\JobDashboard\Index.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
-    <Content Include="Views\PostJob\index.cshtml" />
+    <Content Include="Views\Transaction\index.cshtml" />
     <Content Include="Views\Applicant\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

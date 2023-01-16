@@ -1,6 +1,7 @@
 using Job.Services.IService;
 using Job.Services.Models;
 using Job.Services.Service;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ using System.Web.Mvc;
 
 namespace Job.Controllers
 {
-    public class PostJobController : Controller
+    public class TransactionController : Controller
     {
         private IJobService JobService;
 
-        public PostJobController()
+        public TransactionController()
         {
             JobService = new JobService();
         }
@@ -36,6 +37,22 @@ namespace Job.Controllers
                 return View();
             }
         }
-      
+
+
+        [HttpPost]
+        public ActionResult DepositCash(DepositCashDto depositCashDto)
+        {
+            try
+            {
+                var userId = User.Identity.GetUserId();
+                JobService.DepositCash(depositCashDto, userId);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
+        }
+
     }
 }

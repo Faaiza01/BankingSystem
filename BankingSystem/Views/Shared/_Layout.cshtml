@@ -49,7 +49,7 @@
                      }
                     @if ((Session["Data"] as App_User)?.Role == "Customer")
                     {  
-                      <li>@Html.ActionLink("Cash Withdrawal", "Index", "PostJob", new { area = "" }, null)</li>
+                      <li>@Html.ActionLink("Deposit Cash", "Index", "Transaction", new { area = "" }, null)</li>
                     }
                     @if ((Session["Data"] as App_User)?.Role == "JobSeeker")
                     {

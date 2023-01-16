@@ -1,7 +1,7 @@
-@model Job.Services.Models.WithDrawCashDto
+@model Job.Services.Models.DepositCashDto
 
 @{
-    ViewBag.Title = "CashWithDrawal";
+    ViewBag.Title = "DepositCash";
 }
 
 
@@ -176,10 +176,10 @@
         border-bottom: 1px solid black;
     }
 </style>
-<h2 class="marginTop">Cash WithDrawal</h2>
+<h2 class="marginTop">Deposit Cash</h2>
 <hr class="line">
 
-@using (Html.BeginForm("WithDrawCash", "Employer", FormMethod.Post))
+@using (Html.BeginForm("DepositCash", "Transaction", FormMethod.Post))
 {
     <div class="form">
         @Html.AntiForgeryToken()
@@ -204,7 +204,7 @@
         </div>
   
         <div class="textAlign">
-            <input type="submit" value="Withdraw" class="submit" />
+            <input type="submit" value="DepositCash" class="submit" />
 
         </div>
     </div>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Job.Services.Models
 {
-    public class WithDrawCashDto
+    public class DepositCashDto
     {
         public string AccountNumber { get; set; }
         public decimal? Amount { get; set; }
