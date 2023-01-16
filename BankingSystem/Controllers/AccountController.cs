@@ -36,9 +36,17 @@ namespace BankingSystem.Controllers
             BankingSystemService = new BankingSystemService();
         }
 
-        #region Login 
-        // GET: /Account/Login
-        [AllowAnonymous]
+        [HttpGet]
+        public ActionResult Profile()
+        {
+            var userId = User.Identity.GetUserId();
+            ViewBag.history = BankingSystemService.GetUserData(userId);
+            return View(ViewBag.history);
+        }
+    
+    #region Login 
+    // GET: /Account/Login
+    [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
             return View();
