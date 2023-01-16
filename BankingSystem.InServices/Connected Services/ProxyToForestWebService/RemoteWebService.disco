@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://webteach_net.hallam.shu.ac.uk/cmsmr2/RemoteWebService.asmx?wsdl" docRef="http://webteach_net.hallam.shu.ac.uk/cmsmr2/RemoteWebService.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://webteach_net.hallam.shu.ac.uk/cmsmr2/RemoteWebService.asmx" xmlns:q1="http://tempuri.org/" binding="q1:JobWebServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://webteach_net.hallam.shu.ac.uk/cmsmr2/RemoteWebService.asmx" xmlns:q2="http://tempuri.org/" binding="q2:JobWebServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

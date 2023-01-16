@@ -1,0 +1,168 @@
+﻿@model IEnumerable<Job.Data.ListOfApplicantsDto>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <style>
+        small {
+            font-size: 0.5em;
+        }
+
+        .list {
+            border-radius: 3px;
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .table-header {
+            background-color: #95A5A6;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .table-row {
+            background-color: #ffffff;
+            box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .col-1 {
+            flex-basis: 10%;
+        }
+
+        .col-2 {
+            flex-basis: 40%;
+            text-align: center;
+        }
+
+        .col-3 {
+            flex-basis: 25%;
+        }
+
+        .line {
+            border-bottom: 1px solid black;
+        }
+
+        .col-4 {
+            flex-basis: 25%;
+        }
+
+
+        .button {
+            background-color: #4CAF50;
+
+            /* Green */
+            border: none;
+            color: white;
+            padding: 5px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .buttonred {
+            background-color: red;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 5px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        a {
+            color: #000000;
+        }
+
+        .btntext {
+            color: white !important;
+        }
+
+        .btntext:hover {
+            text-decoration: none !important;
+        }
+
+        .marginTop {
+            margin-top: 4rem;
+            margin-bottom: 10px;
+        }
+
+        .line {
+            border-bottom: 1px solid black;
+        }
+    </style>
+</head>
+
+<h2 class="marginTop">List of Applicants</h2>
+<hr class="line">
+<ul>
+    <li class="table-header list">
+        <div class="col col-2"> @Html.DisplayNameFor(model => model.NameOfApplicant)</div>
+
+        <div class="col col-2"> @Html.DisplayNameFor(model => model.Email)</div>
+        <div class="col col-2">@Html.DisplayNameFor(model => model.JobTitle)</div>
+        <div class="col col-2">@Html.DisplayNameFor(model => model.CompanyName)</div>
+        <div class="col col-2">@Html.DisplayNameFor(model => model.ComapanyEmail)</div>
+
+        <div class="col col-2">@Html.DisplayNameFor(model => model.AppliedJobDate)</div>
+        <div class="col col-2">Resume</div>
+    </li>
+</ul>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li class="table-row list">
+            <div class="col col-2" data-label="Job Id">@item.NameOfApplicant</div>
+
+            <div class="col col-2" data-label="Payment Status">@item.Email</div>
+            <div class="col col-2" data-label="Amount">@item.JobTitle</div>
+            <div class="col col-2" data-label="Customer Name">@item.CompanyName</div>
+            <div class="col col-2" data-label="Job Id"> @item.ComapanyEmail</div>
+
+
+            <div class="col col-2" data-label="Amount">
+                @item.AppliedJobDate
+            </div>
+            @if (@item.Resume != null)
+            {
+                <div class="col col-2" data-label="Amount">
+                    <div class="button">
+                        <a href="#" class="btntext alink" target="_blank">
+                            @Html.ActionLink("Download", "PdfDownload", new
+                    {
+                    userId =item.IdentityId
+                    })
+                        </a>
+                    </div>
+                </div>
+
+            }
+            @if (@item.Resume == null)
+            {
+                <div class="col col-2" data-label="Amount">
+                    -
+                </div>
+
+            }
+
+        </li>
+
+
+
+    }
+
+
+
+</ul>
+
+
+</body>
+
+</html>

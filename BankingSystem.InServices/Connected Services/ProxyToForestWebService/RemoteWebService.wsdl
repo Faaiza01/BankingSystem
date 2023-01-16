@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetOurCatalogue">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetOurCatalogueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOurCatalogueResult" type="tns:ArrayOfMusicType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMusicType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MusicType" nillable="true" type="tns:MusicType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MusicType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Style" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Albums" type="tns:ArrayOfAlbum" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAlbum">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Album" nillable="true" type="tns:Album" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Album">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Band" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cost" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOurCatalogueByAuthenticating">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetOurCatalogueByAuthenticatingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOurCatalogueByAuthenticatingResult" type="tns:ArrayOfMusicType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HeaderLogin" type="tns:HeaderLogin" />
+      <s:complexType name="HeaderLogin">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="GetCatalogue">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCatalogueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCatalogueResult" type="tns:ArrayOfMusicType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfMusicType" nillable="true" type="tns:ArrayOfMusicType" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetOurCatalogueSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOurCatalogue" />
+  </wsdl:message>
+  <wsdl:message name="GetOurCatalogueSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOurCatalogueResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOurCatalogueByAuthenticatingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOurCatalogueByAuthenticating" />
+  </wsdl:message>
+  <wsdl:message name="GetOurCatalogueByAuthenticatingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOurCatalogueByAuthenticatingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOurCatalogueByAuthenticatingHeaderLogin">
+    <wsdl:part name="HeaderLogin" element="tns:HeaderLogin" />
+  </wsdl:message>
+  <wsdl:message name="GetCatalogueSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCatalogue" />
+  </wsdl:message>
+  <wsdl:message name="GetCatalogueSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCatalogueResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOurCatalogueHttpGetIn" />
+  <wsdl:message name="GetOurCatalogueHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMusicType" />
+  </wsdl:message>
+  <wsdl:message name="GetOurCatalogueByAuthenticatingHttpGetIn" />
+  <wsdl:message name="GetOurCatalogueByAuthenticatingHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMusicType" />
+  </wsdl:message>
+  <wsdl:message name="GetCatalogueHttpGetIn" />
+  <wsdl:message name="GetCatalogueHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMusicType" />
+  </wsdl:message>
+  <wsdl:message name="GetOurCatalogueHttpPostIn" />
+  <wsdl:message name="GetOurCatalogueHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMusicType" />
+  </wsdl:message>
+  <wsdl:message name="GetOurCatalogueByAuthenticatingHttpPostIn" />
+  <wsdl:message name="GetOurCatalogueByAuthenticatingHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMusicType" />
+  </wsdl:message>
+  <wsdl:message name="GetCatalogueHttpPostIn" />
+  <wsdl:message name="GetCatalogueHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMusicType" />
+  </wsdl:message>
+  <wsdl:portType name="JobWebServiceSoap">
+    <wsdl:operation name="GetOurCatalogue">
+      <wsdl:input message="tns:GetOurCatalogueSoapIn" />
+      <wsdl:output message="tns:GetOurCatalogueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOurCatalogueByAuthenticating">
+      <wsdl:input message="tns:GetOurCatalogueByAuthenticatingSoapIn" />
+      <wsdl:output message="tns:GetOurCatalogueByAuthenticatingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogue">
+      <wsdl:input message="tns:GetCatalogueSoapIn" />
+      <wsdl:output message="tns:GetCatalogueSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="JobWebServiceHttpGet">
+    <wsdl:operation name="GetOurCatalogue">
+      <wsdl:input message="tns:GetOurCatalogueHttpGetIn" />
+      <wsdl:output message="tns:GetOurCatalogueHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOurCatalogueByAuthenticating">
+      <wsdl:input message="tns:GetOurCatalogueByAuthenticatingHttpGetIn" />
+      <wsdl:output message="tns:GetOurCatalogueByAuthenticatingHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogue">
+      <wsdl:input message="tns:GetCatalogueHttpGetIn" />
+      <wsdl:output message="tns:GetCatalogueHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="JobWebServiceHttpPost">
+    <wsdl:operation name="GetOurCatalogue">
+      <wsdl:input message="tns:GetOurCatalogueHttpPostIn" />
+      <wsdl:output message="tns:GetOurCatalogueHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOurCatalogueByAuthenticating">
+      <wsdl:input message="tns:GetOurCatalogueByAuthenticatingHttpPostIn" />
+      <wsdl:output message="tns:GetOurCatalogueByAuthenticatingHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogue">
+      <wsdl:input message="tns:GetCatalogueHttpPostIn" />
+      <wsdl:output message="tns:GetCatalogueHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="JobWebServiceSoap" type="tns:JobWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetOurCatalogue">
+      <soap:operation soapAction="http://tempuri.org/GetOurCatalogue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOurCatalogueByAuthenticating">
+      <soap:operation soapAction="http://tempuri.org/GetOurCatalogueByAuthenticating" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetOurCatalogueByAuthenticatingHeaderLogin" part="HeaderLogin" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogue">
+      <soap:operation soapAction="http://tempuri.org/GetCatalogue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="JobWebServiceSoap12" type="tns:JobWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetOurCatalogue">
+      <soap12:operation soapAction="http://tempuri.org/GetOurCatalogue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOurCatalogueByAuthenticating">
+      <soap12:operation soapAction="http://tempuri.org/GetOurCatalogueByAuthenticating" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetOurCatalogueByAuthenticatingHeaderLogin" part="HeaderLogin" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogue">
+      <soap12:operation soapAction="http://tempuri.org/GetCatalogue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="JobWebServiceHttpGet" type="tns:JobWebServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetOurCatalogue">
+      <http:operation location="/GetOurCatalogue" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOurCatalogueByAuthenticating">
+      <http:operation location="/GetOurCatalogueByAuthenticating" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogue">
+      <http:operation location="/GetCatalogue" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="JobWebServiceHttpPost" type="tns:JobWebServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetOurCatalogue">
+      <http:operation location="/GetOurCatalogue" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOurCatalogueByAuthenticating">
+      <http:operation location="/GetOurCatalogueByAuthenticating" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogue">
+      <http:operation location="/GetCatalogue" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="JobWebService">
+    <wsdl:port name="JobWebServiceSoap" binding="tns:JobWebServiceSoap">
+      <soap:address location="http://webteach_net.hallam.shu.ac.uk/cmsmr2/RemoteWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="JobWebServiceSoap12" binding="tns:JobWebServiceSoap12">
+      <soap12:address location="http://webteach_net.hallam.shu.ac.uk/cmsmr2/RemoteWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="JobWebServiceHttpGet" binding="tns:JobWebServiceHttpGet">
+      <http:address location="http://webteach_net.hallam.shu.ac.uk/cmsmr2/RemoteWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="JobWebServiceHttpPost" binding="tns:JobWebServiceHttpPost">
+      <http:address location="http://webteach_net.hallam.shu.ac.uk/cmsmr2/RemoteWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

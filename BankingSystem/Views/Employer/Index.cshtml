@@ -1,0 +1,158 @@
+﻿@model IEnumerable<Job.Data.Models.Domain.Employer>
+
+@{
+    ViewBag.Title = "List of Jobs";
+}
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <style>
+        small {
+            font-size: 0.5em;
+        }
+
+        .list {
+            border-radius: 3px;
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .table-header {
+            background-color: #95A5A6;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .table-row {
+            background-color: #ffffff;
+            box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .col-1 {
+            flex-basis: 10%;
+        }
+
+        .col-2 {
+            flex-basis: 40%;
+            text-align: center;
+        }
+
+        .col-3 {
+            flex-basis: 25%;
+        }
+
+        .line {
+            border-bottom: 1px solid black;
+        }
+
+        .col-4 {
+            flex-basis: 25%;
+        }
+
+
+        .button {
+            background-color: #4CAF50;
+
+            /* Green */
+            border: none;
+            color: white;
+            padding: 5px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .buttonred {
+            background-color: red;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 5px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        a {
+            color: #000000;
+        }
+
+        .btntext {
+            color: white !important;
+        }
+
+        .btntext:hover {
+            text-decoration: none !important;
+        }
+
+        .marginTop {
+            margin-top: 4rem;
+            margin-bottom: 10px;
+        }
+
+        .line {
+            border-bottom: 1px solid black;
+        }
+    </style>
+</head>
+
+
+<h2 class="marginTop">List of Jobs</h2>
+<hr class="line">
+<ul>
+    <li class="table-header list">
+        <div class="col col-2">@Html.DisplayNameFor(model => model.JobTitle)</div>
+
+        <div class="col col-2">@Html.DisplayNameFor(model => model.JobCategory)</div>
+        <div class="col col-2">@Html.DisplayNameFor(model => model.CompanyName)</div>
+        <div class="col col-2">@Html.DisplayNameFor(model => model.ComapanyEmail)</div>
+        <div class="col col-2">@Html.DisplayNameFor(model => model.CompanyWebsite)</div>
+
+        <div class="col col-2">Edit</div>
+        <div class="col col-2">Delete</div>
+    </li>
+</ul>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li class="table-row list">
+            <div class="col col-2" data-label="Job Id"> @item.JobTitle</div>
+
+            <div class="col col-2" data-label="Payment Status">@item.JobCategory</div>
+            <div class="col col-2" data-label="Amount">@item.CompanyName</div>
+            <div class="col col-2" data-label="Job Id"> @item.ComapanyEmail</div>
+            <div class="col col-2" data-label="Customer Name"> @item.CompanyWebsite</div>
+
+            <div class="col col-2" data-label="Amount">
+                <div class="button"><a href="#" class="btntext alink"> @Html.ActionLink("Edit", "EditJob", new { id =
+                    item.JobId }) </a></div>
+            </div>
+            <div class="col col-2" data-label="Amount">
+                <div class="buttonred"><a href="#" class="btntext alink">@Html.ActionLink("Delete", "DeleteJob", new { id =
+                    item.JobId })</a></div>
+            </div>
+
+        </li>
+
+
+
+    }
+
+
+
+</ul>
+
+
+</body>
+
+</html>
