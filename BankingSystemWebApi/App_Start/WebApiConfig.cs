@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace JobWebApi
+namespace BankingSystemWebApi
 {
     public static class WebApiConfig
     {

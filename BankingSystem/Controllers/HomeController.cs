@@ -1,7 +1,7 @@
-﻿using Job.Data.Models.Domain;
-using Job.Services.IService;
-using Job.Services.Models;
-using Job.Services.Service;
+﻿using BankingSystem.Data.Models.Domain;
+using BankingSystem.Services.IService;
+using BankingSystem.Services.Models;
+using BankingSystem.Services.Service;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -12,38 +12,35 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Threading.Tasks;
-using Job.Models;
+using BankingSystem.Models;
 
-namespace Job.Controllers
+namespace BankingSystem.Controllers
 {
     public class HomeController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private IJobService JobService;
-        private IUserService UserService;
-
+        private IBankingSystemService BankingSystemService;
 
         public HomeController()
         {
-            JobService = new JobService();
-            UserService = new UserService();
+            BankingSystemService = new BankingSystemService();
         }
         public HomeController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
-            JobService = new JobService();
+            BankingSystemService = new BankingSystemService();
         }
         public async Task<ActionResult> Index()
         {
             var userId = User.Identity.GetUserId();
-            App_User admin = JobService.GetAdminData();
+            App_User admin = BankingSystemService.GetAdminData();
             if(admin == null)
             {
                 await Register();
             }
-            App_User app_User = JobService.GetUserData(userId);
+            App_User app_User = BankingSystemService.GetUserData(userId);
             Session["Data"] = app_User;
             if (userId != null)
             {
@@ -53,47 +50,28 @@ namespace Job.Controllers
         }
 
         public async Task<ActionResult> Register()
-        {
-            
-                var user = new ApplicationUser { UserName = "admin1@gmail.com", Email = "admin1@gmail.com" };
-                var result = await UserManager.CreateAsync(user, "Test1234@");
-                if (result.Succeeded)
+        {            
+            var user = new ApplicationUser { UserName = "admin2@gmail.com", Email = "admin2@gmail.com" };
+            var result = await UserManager.CreateAsync(user, "Test1234@");
+            if (result.Succeeded)
+            {
+                await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                App_User app_User = new App_User
                 {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
-                    App_User app_User = new App_User
-                    {
                         IdentityId = user.Id,
-                        FirstName = "Admin1",
-                        LastName = "Admin1",
-                        Email = "admin1@gmail.com",
+                        FirstName = "Admin2",
+                        LastName = "Admin2",
+                        Email = "admin2@gmail.com",
                         Role = "Admin",
-                    };
-                    JobService = new JobService();
-                    JobService.AddUser(app_User);
+                };
+                    BankingSystemService = new BankingSystemService();
+                    BankingSystemService.AddUser(app_User);
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
     
             // If we got this far, something failed, redisplay form
             return RedirectToAction("Index", "Login");
-        }
-
-
-        // POST: PostJob/Create
-        [HttpPost]
-        public ActionResult PostJob(PostJobDto postJobDto)
-        {
-            try
-            {
-                JobService.AddJob(postJobDto, "mo");
-                return RedirectToAction("Index");
-            }
-            catch(Exception ex)
-            {
-                var test = ex.Message;
-                return View();
-            }
         }
 
         public ApplicationSignInManager SignInManager

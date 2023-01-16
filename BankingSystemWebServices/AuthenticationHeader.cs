@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services.Protocols;
 
-namespace JobWebServices
+namespace BankingSystemWebServices
 {
     public class AuthenticationHeader : SoapHeader
     {

@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using Job.Models;
+using BankingSystem.Models;
 
-namespace Job
+namespace BankingSystem
 {
     public partial class Startup
     {

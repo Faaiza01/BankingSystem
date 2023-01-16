@@ -48,12 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IService\IUserService.cs" />
     <Compile Include="IService\IJobService.cs" />
     <Compile Include="Models\PostJobDto.cs" />
     <Compile Include="Models\WithDrawCashDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\UserService.cs" />
     <Compile Include="Service\JobService.cs" />
   </ItemGroup>
   <ItemGroup>

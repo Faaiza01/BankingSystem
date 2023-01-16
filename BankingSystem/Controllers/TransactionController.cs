@@ -1,6 +1,6 @@
-using Job.Services.IService;
-using Job.Services.Models;
-using Job.Services.Service;
+using BankingSystem.Services.IService;
+using BankingSystem.Services.Models;
+using BankingSystem.Services.Service;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -8,36 +8,20 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Job.Controllers
+namespace BankingSystem.Controllers
 {
     public class TransactionController : Controller
     {
-        private IJobService JobService;
+        private IBankingSystemService BankingSystemService;
 
         public TransactionController()
         {
-            JobService = new JobService();
+            BankingSystemService = new BankingSystemService();
         }
         public ActionResult Index()
         {
             return View();
         }
-
-        // POST: PostJob/Create
-        [HttpPost]
-        public ActionResult PostJob(PostJobDto postJobDto)
-        {
-            try
-            {
-                JobService.AddJob(postJobDto, "mo");
-                return RedirectToAction("Index");
-            }
-            catch(Exception ex)
-            {
-                return View();
-            }
-        }
-
 
         [HttpPost]
         public ActionResult DepositCash(DepositCashDto depositCashDto)
@@ -45,8 +29,8 @@ namespace Job.Controllers
             try
             {
                 var userId = User.Identity.GetUserId();
-                JobService.DepositCash(depositCashDto, userId);
-                return RedirectToAction("Index");
+                BankingSystemService.DepositCash(depositCashDto, userId);
+                return RedirectToAction("TransactionHistory");
             }
             catch (Exception ex)
             {
@@ -65,8 +49,8 @@ namespace Job.Controllers
             try
             {
                 var userId = User.Identity.GetUserId();
-                JobService.WithDrawCash(depositCashDto, userId);
-                return RedirectToAction("Index");
+                BankingSystemService.WithDrawCash(depositCashDto, userId);
+                return RedirectToAction("TransactionHistory");
             }
             catch (Exception ex)
             {
@@ -77,7 +61,7 @@ namespace Job.Controllers
         public ActionResult TransactionHistory()
         {
             var userId = User.Identity.GetUserId();
-            ViewBag.history = JobService.GetTransactionHistory(userId);
+            ViewBag.history = BankingSystemService.GetTransactionHistory(userId);
             return View(ViewBag.history);
         }
     }

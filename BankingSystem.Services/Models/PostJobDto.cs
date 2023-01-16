@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Job.Services.Models
+namespace BankingSystem.Services.Models
 {
-    public class PostJobDto
+    public class PostBankingSystemDto
     {
-        public string JobTitle { get; set; }
-        public string JobDescription { get; set; }
-        public string JobCategory { get; set; }
+        public string BankingSystemTitle { get; set; }
+        public string BankingSystemDescription { get; set; }
+        public string BankingSystemCategory { get; set; }
         public string Salary { get; set; }
         public string CompanyName { get; set; }
         public string ComapanyEmail { get; set; }

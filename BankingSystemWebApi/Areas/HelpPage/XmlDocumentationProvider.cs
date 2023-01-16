@@ -5,9 +5,9 @@ using System.Reflection;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
 using System.Xml.XPath;
-using JobWebApi.Areas.HelpPage.ModelDescriptions;
+using BankingSystemWebApi.Areas.HelpPage.ModelDescriptions;
 
-namespace JobWebApi.Areas.HelpPage
+namespace BankingSystemWebApi.Areas.HelpPage
 {
     /// <summary>
     /// A custom <see cref="IDocumentationProvider"/> that reads the API documentation from an XML documentation file.

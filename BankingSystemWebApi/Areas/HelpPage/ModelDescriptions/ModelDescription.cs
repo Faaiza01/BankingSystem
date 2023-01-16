@@ -1,6 +1,6 @@
 using System;
 
-namespace JobWebApi.Areas.HelpPage.ModelDescriptions
+namespace BankingSystemWebApi.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Describes a type model.

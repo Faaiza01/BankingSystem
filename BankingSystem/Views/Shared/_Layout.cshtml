@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
-@using Job.Data.Models.Domain
+@using BankingSystem.Data.Models.Domain
 
 <!DOCTYPE html>
 <html>
@@ -43,7 +43,7 @@
                     @if ((Session["Data"] as App_User)?.Role == "Employer")
                     {
                 <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                                        <li>@Html.ActionLink("Post a Job", "Index", "PostJob", new { area = "" }, null)</li>
+                                        <li>@Html.ActionLink("Post a BankingSystem", "Index", "PostBankingSystem", new { area = "" }, null)</li>
                                                                 <li>@Html.ActionLink("Employer Dashboard", "Index", "Employer", new { area = "" }, null)</li>
                                                                                         <li>@Html.ActionLink("List of Applicants ", "Index", "Applicant", new { area = "" }, null)</li>}
                     @if ((Session["Data"] as App_User)?.Role == "Customer")
@@ -53,12 +53,12 @@
                                         <li>@Html.ActionLink("WithDraw Cash", "WithDraw", "Transaction", new { area = "" }, null)</li>
 
                                                                 <li>@Html.ActionLink("Transaction History", "TransactionHistory", "Transaction", new { area = "" }, null)</li>                    }
-                    @if ((Session["Data"] as App_User)?.Role == "JobSeeker")
+                    @if ((Session["Data"] as App_User)?.Role == "BankingSystemSeeker")
                     {
                 <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                                        <li>@Html.ActionLink("Job Opening", "Index", "Search", new { area = "" }, null)</li>
+                                        <li>@Html.ActionLink("BankingSystem Opening", "Index", "Search", new { area = "" }, null)</li>
                                                                 <li>@Html.ActionLink("Profile", "Index", "Profile", new { area = "" }, null)</li>
-                                                                                        <li>@Html.ActionLink("Job Dashboard", "Index", "JobDashboard", new { area = "" }, null)</li>}
+                                                                                        <li>@Html.ActionLink("BankingSystem Dashboard", "Index", "BankingSystemDashboard", new { area = "" }, null)</li>}
                     @if ((Session["Data"] as App_User)?.Role == "Admin")
                     {
                 <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>

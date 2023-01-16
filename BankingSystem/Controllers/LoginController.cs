@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace JobWebApi.Controllers
+namespace BankingSystemWebApi.Controllers
 {
     public class LoginController : Controller
     {

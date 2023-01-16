@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace JobWebApi
+namespace BankingSystemWebApi
 {
     public class RouteConfig
     {
@@ -24,9 +24,9 @@ namespace JobWebApi
                 defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional }
             );
                 routes.MapRoute(
-                name: "Post a Job",
+                name: "Post a BankingSystem",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "PostJob", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "PostBankingSystem", action = "Index", id = UrlParameter.Optional }
             );
                 routes.MapRoute(
                 name: "Register",
@@ -34,7 +34,7 @@ namespace JobWebApi
                 defaults: new { controller = "Register", action = "Index", id = UrlParameter.Optional }
             );
                 routes.MapRoute(
-                name: "Job Search",
+                name: "BankingSystem Search",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Search", action = "Index", id = UrlParameter.Optional }
             );

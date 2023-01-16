@@ -8,54 +8,32 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Job.Models;
-using Job.Services.IService;
-using Job.Services.Service;
-using Job.Data.Models.Domain;
+using BankingSystem.Models;
+using BankingSystem.Services.IService;
+using BankingSystem.Services.Service;
+using BankingSystem.Data.Models.Domain;
 using System.Text;
+using BankingSystem;
 
-namespace Job.Controllers
+namespace BankingSystem.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private IJobService JobService;
+        private IBankingSystemService BankingSystemService;
 
         public AccountController()
         {
-            JobService = new JobService();           
+            BankingSystemService = new BankingSystemService();           
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
-            JobService = new JobService();
-        }
-        public ApplicationSignInManager SignInManager
-        {
-            get
-            {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
-            }
-            private set 
-            { 
-                _signInManager = value; 
-            }
-        }
-
-        public ApplicationUserManager UserManager
-        {
-            get
-            {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            private set
-            {
-                _userManager = value;
-            }
+            BankingSystemService = new BankingSystemService();
         }
 
         #region Login 
@@ -98,7 +76,6 @@ namespace Job.Controllers
 
         #endregion
 
-
         #region Register
 
         // GET: /Account/Register
@@ -136,8 +113,8 @@ namespace Job.Controllers
                         AccountNumber = RandomString(8),
                         OpenDate = DateTime.Now                        
                     };
-                    JobService = new JobService();
-                    JobService.AddUser(app_User);
+                    BankingSystemService = new BankingSystemService();
+                    BankingSystemService.AddUser(app_User);
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
@@ -145,7 +122,6 @@ namespace Job.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-
         private static string RandomString(int length)
         {
             Random random = new Random();
@@ -170,7 +146,6 @@ namespace Job.Controllers
             Session.Clear();
             return RedirectToAction("", "");
         }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -190,8 +165,29 @@ namespace Job.Controllers
 
             base.Dispose(disposing);
         }
-
         #region Helpers
+        public ApplicationSignInManager SignInManager
+        {
+            get
+            {
+                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+            }
+            private set
+            {
+                _signInManager = value;
+            }
+        }
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
         private IAuthenticationManager AuthenticationManager

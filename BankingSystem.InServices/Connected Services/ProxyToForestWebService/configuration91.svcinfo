@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="iarzviHfHR3jhD4x+p+k53eCZNO6yjeIE33QRKsQzCQ=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="basicHttpBinding" name="JobWebServiceSoap">
+    <bindingConfiguration bindingType="basicHttpBinding" name="BankingSystemWebServiceSoap">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>JobWebServiceSoap</serializedValue>
+          <serializedValue>BankingSystemWebServiceSoap</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -110,10 +110,10 @@
         </property>
       </properties>
     </bindingConfiguration>
-    <bindingConfiguration bindingType="customBinding" name="JobWebServiceSoap12">
+    <bindingConfiguration bindingType="customBinding" name="BankingSystemWebServiceSoap12">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>JobWebServiceSoap12</serializedValue>
+          <serializedValue>BankingSystemWebServiceSoap12</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -263,7 +263,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="JobWebServiceSoap" contract="ProxyToJobWebService.JobWebServiceSoap" bindingType="basicHttpBinding" address="http://webteach_net.hallam.shu.ac.uk/cmsmr2/RemoteWebService.asmx" bindingConfiguration="JobWebServiceSoap">
+    <endpoint name="BankingSystemWebServiceSoap" contract="ProxyToBankingSystemWebService.BankingSystemWebServiceSoap" bindingType="basicHttpBinding" address="http://webteach_net.hallam.shu.ac.uk/cmsmr2/RemoteWebService.asmx" bindingConfiguration="BankingSystemWebServiceSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://webteach_net.hallam.shu.ac.uk/cmsmr2/RemoteWebService.asmx</serializedValue>
@@ -275,10 +275,10 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>JobWebServiceSoap</serializedValue>
+          <serializedValue>BankingSystemWebServiceSoap</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ProxyToJobWebService.JobWebServiceSoap</serializedValue>
+          <serializedValue>ProxyToBankingSystemWebService.BankingSystemWebServiceSoap</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
@@ -338,7 +338,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>JobWebServiceSoap</serializedValue>
+          <serializedValue>BankingSystemWebServiceSoap</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -348,7 +348,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="JobWebServiceSoap12" contract="ProxyToJobWebService.JobWebServiceSoap" bindingType="customBinding" address="http://webteach_net.hallam.shu.ac.uk/cmsmr2/RemoteWebService.asmx" bindingConfiguration="JobWebServiceSoap12">
+    <endpoint name="BankingSystemWebServiceSoap12" contract="ProxyToBankingSystemWebService.BankingSystemWebServiceSoap" bindingType="customBinding" address="http://webteach_net.hallam.shu.ac.uk/cmsmr2/RemoteWebService.asmx" bindingConfiguration="BankingSystemWebServiceSoap12">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://webteach_net.hallam.shu.ac.uk/cmsmr2/RemoteWebService.asmx</serializedValue>
@@ -360,10 +360,10 @@
           <serializedValue>customBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>JobWebServiceSoap12</serializedValue>
+          <serializedValue>BankingSystemWebServiceSoap12</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ProxyToJobWebService.JobWebServiceSoap</serializedValue>
+          <serializedValue>ProxyToBankingSystemWebService.BankingSystemWebServiceSoap</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
@@ -423,7 +423,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>JobWebServiceSoap12</serializedValue>
+          <serializedValue>BankingSystemWebServiceSoap12</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

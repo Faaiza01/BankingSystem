@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 
-namespace JobWebServices
+namespace BankingSystemWebServices
 {
     /// <summary>
     /// Summary description for Calculator

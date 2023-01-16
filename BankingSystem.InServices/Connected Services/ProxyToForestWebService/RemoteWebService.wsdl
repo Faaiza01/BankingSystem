@@ -111,7 +111,7 @@
   <wsdl:message name="GetCatalogueHttpPostOut">
     <wsdl:part name="Body" element="tns:ArrayOfMusicType" />
   </wsdl:message>
-  <wsdl:portType name="JobWebServiceSoap">
+  <wsdl:portType name="BankingSystemWebServiceSoap">
     <wsdl:operation name="GetOurCatalogue">
       <wsdl:input message="tns:GetOurCatalogueSoapIn" />
       <wsdl:output message="tns:GetOurCatalogueSoapOut" />
@@ -125,7 +125,7 @@
       <wsdl:output message="tns:GetCatalogueSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:portType name="JobWebServiceHttpGet">
+  <wsdl:portType name="BankingSystemWebServiceHttpGet">
     <wsdl:operation name="GetOurCatalogue">
       <wsdl:input message="tns:GetOurCatalogueHttpGetIn" />
       <wsdl:output message="tns:GetOurCatalogueHttpGetOut" />
@@ -139,7 +139,7 @@
       <wsdl:output message="tns:GetCatalogueHttpGetOut" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:portType name="JobWebServiceHttpPost">
+  <wsdl:portType name="BankingSystemWebServiceHttpPost">
     <wsdl:operation name="GetOurCatalogue">
       <wsdl:input message="tns:GetOurCatalogueHttpPostIn" />
       <wsdl:output message="tns:GetOurCatalogueHttpPostOut" />
@@ -153,7 +153,7 @@
       <wsdl:output message="tns:GetCatalogueHttpPostOut" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="JobWebServiceSoap" type="tns:JobWebServiceSoap">
+  <wsdl:binding name="BankingSystemWebServiceSoap" type="tns:BankingSystemWebServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetOurCatalogue">
       <soap:operation soapAction="http://tempuri.org/GetOurCatalogue" style="document" />
@@ -184,7 +184,7 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="JobWebServiceSoap12" type="tns:JobWebServiceSoap">
+  <wsdl:binding name="BankingSystemWebServiceSoap12" type="tns:BankingSystemWebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetOurCatalogue">
       <soap12:operation soapAction="http://tempuri.org/GetOurCatalogue" style="document" />
@@ -215,7 +215,7 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="JobWebServiceHttpGet" type="tns:JobWebServiceHttpGet">
+  <wsdl:binding name="BankingSystemWebServiceHttpGet" type="tns:BankingSystemWebServiceHttpGet">
     <http:binding verb="GET" />
     <wsdl:operation name="GetOurCatalogue">
       <http:operation location="/GetOurCatalogue" />
@@ -245,7 +245,7 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="JobWebServiceHttpPost" type="tns:JobWebServiceHttpPost">
+  <wsdl:binding name="BankingSystemWebServiceHttpPost" type="tns:BankingSystemWebServiceHttpPost">
     <http:binding verb="POST" />
     <wsdl:operation name="GetOurCatalogue">
       <http:operation location="/GetOurCatalogue" />
@@ -275,17 +275,17 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="JobWebService">
-    <wsdl:port name="JobWebServiceSoap" binding="tns:JobWebServiceSoap">
+  <wsdl:service name="BankingSystemWebService">
+    <wsdl:port name="BankingSystemWebServiceSoap" binding="tns:BankingSystemWebServiceSoap">
       <soap:address location="http://webteach_net.hallam.shu.ac.uk/cmsmr2/RemoteWebService.asmx" />
     </wsdl:port>
-    <wsdl:port name="JobWebServiceSoap12" binding="tns:JobWebServiceSoap12">
+    <wsdl:port name="BankingSystemWebServiceSoap12" binding="tns:BankingSystemWebServiceSoap12">
       <soap12:address location="http://webteach_net.hallam.shu.ac.uk/cmsmr2/RemoteWebService.asmx" />
     </wsdl:port>
-    <wsdl:port name="JobWebServiceHttpGet" binding="tns:JobWebServiceHttpGet">
+    <wsdl:port name="BankingSystemWebServiceHttpGet" binding="tns:BankingSystemWebServiceHttpGet">
       <http:address location="http://webteach_net.hallam.shu.ac.uk/cmsmr2/RemoteWebService.asmx" />
     </wsdl:port>
-    <wsdl:port name="JobWebServiceHttpPost" binding="tns:JobWebServiceHttpPost">
+    <wsdl:port name="BankingSystemWebServiceHttpPost" binding="tns:BankingSystemWebServiceHttpPost">
       <http:address location="http://webteach_net.hallam.shu.ac.uk/cmsmr2/RemoteWebService.asmx" />
     </wsdl:port>
   </wsdl:service>

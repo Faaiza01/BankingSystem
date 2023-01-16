@@ -11,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using JobWebApi.Areas.HelpPage.ModelDescriptions;
-using JobWebApi.Areas.HelpPage.Models;
+using BankingSystemWebApi.Areas.HelpPage.ModelDescriptions;
+using BankingSystemWebApi.Areas.HelpPage.Models;
 
-namespace JobWebApi.Areas.HelpPage
+namespace BankingSystemWebApi.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

@@ -79,7 +79,7 @@ intellisense.annotate(jQuery, {
   'Deferred': function() {
     /// <signature>
     ///   <summary>A constructor function that returns a chainable utility object with methods to register multiple callbacks into callback queues, invoke callback queues, and relay the success or failure state of any synchronous or asynchronous function.</summary>
-    ///   <param name="beJobart" type="Function">A function that is called just before the constructor returns.</param>
+    ///   <param name="beBankingSystemart" type="Function">A function that is called just before the constructor returns.</param>
     ///   <returns type="Deferred" />
     /// </signature>
   },

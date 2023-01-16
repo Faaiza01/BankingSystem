@@ -1,28 +1,22 @@
-﻿using Job.Data;
-using Job.Data.Models.Domain;
-using Job.Services.Models;
+﻿using BankingSystem.Data;
+using BankingSystem.Data.Models.Domain;
+using BankingSystem.Services.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Job.Services.IService
+namespace BankingSystem.Services.IService
 {
-    public interface IJobService
+    public interface IBankingSystemService
     {
-        Employer GetJob(int id);
         App_User GetAdminData();
-        void AddJob(PostJobDto postJobDto, string userId);
         void DepositCash(DepositCashDto depositCashDto, string userId);
         void WithDrawCash(DepositCashDto depositCashDto, string userId);
         IList<MyTransactionsDto> GetTransactionHistory(string userId);
         IList<MyTransactionsDto> GetAdminTransactionHistory();
         void AddUser(App_User app_User);
-        void EditJob(PostJobDto postJobDto, string userId, int id);
-        void DeleteJob(int id);
-        void ApplyJob(AppliedJobs appliedJobs);
-        void SaveJob(SavedJobs savedJobs);
         IList<App_User> GetUsers();
         void RemoveUser(string id);
         App_User GetUserData(string id);

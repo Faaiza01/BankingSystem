@@ -8,34 +8,34 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Job.InServices.ProxyToJobWebService {
+namespace BankingSystem.InServices.ProxyToBankingSystemWebService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProxyToJobWebService.JobWebServiceSoap")]
-    public interface JobWebServiceSoap {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProxyToBankingSystemWebService.BankingSystemWebServiceSoap")]
+    public interface BankingSystemWebServiceSoap {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetOurCatalogue", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Job.InServices.ProxyToJobWebService.MusicType[] GetOurCatalogue();
+        BankingSystem.InServices.ProxyToBankingSystemWebService.MusicType[] GetOurCatalogue();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetOurCatalogue", ReplyAction="*")]
-        System.Threading.Tasks.Task<Job.InServices.ProxyToJobWebService.MusicType[]> GetOurCatalogueAsync();
+        System.Threading.Tasks.Task<BankingSystem.InServices.ProxyToBankingSystemWebService.MusicType[]> GetOurCatalogueAsync();
         
         // CODEGEN: Generating message contract since message GetOurCatalogueByAuthenticatingRequest has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetOurCatalogueByAuthenticating", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Job.InServices.ProxyToJobWebService.GetOurCatalogueByAuthenticatingResponse GetOurCatalogueByAuthenticating(Job.InServices.ProxyToJobWebService.GetOurCatalogueByAuthenticatingRequest request);
+        BankingSystem.InServices.ProxyToBankingSystemWebService.GetOurCatalogueByAuthenticatingResponse GetOurCatalogueByAuthenticating(BankingSystem.InServices.ProxyToBankingSystemWebService.GetOurCatalogueByAuthenticatingRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetOurCatalogueByAuthenticating", ReplyAction="*")]
-        System.Threading.Tasks.Task<Job.InServices.ProxyToJobWebService.GetOurCatalogueByAuthenticatingResponse> GetOurCatalogueByAuthenticatingAsync(Job.InServices.ProxyToJobWebService.GetOurCatalogueByAuthenticatingRequest request);
+        System.Threading.Tasks.Task<BankingSystem.InServices.ProxyToBankingSystemWebService.GetOurCatalogueByAuthenticatingResponse> GetOurCatalogueByAuthenticatingAsync(BankingSystem.InServices.ProxyToBankingSystemWebService.GetOurCatalogueByAuthenticatingRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCatalogue", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Job.InServices.ProxyToJobWebService.MusicType[] GetCatalogue();
+        BankingSystem.InServices.ProxyToBankingSystemWebService.MusicType[] GetCatalogue();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCatalogue", ReplyAction="*")]
-        System.Threading.Tasks.Task<Job.InServices.ProxyToJobWebService.MusicType[]> GetCatalogueAsync();
+        System.Threading.Tasks.Task<BankingSystem.InServices.ProxyToBankingSystemWebService.MusicType[]> GetCatalogueAsync();
     }
     
     /// <remarks/>
@@ -211,12 +211,12 @@ namespace Job.InServices.ProxyToJobWebService {
     public partial class GetOurCatalogueByAuthenticatingRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Job.InServices.ProxyToJobWebService.HeaderLogin HeaderLogin;
+        public BankingSystem.InServices.ProxyToBankingSystemWebService.HeaderLogin HeaderLogin;
         
         public GetOurCatalogueByAuthenticatingRequest() {
         }
         
-        public GetOurCatalogueByAuthenticatingRequest(Job.InServices.ProxyToJobWebService.HeaderLogin HeaderLogin) {
+        public GetOurCatalogueByAuthenticatingRequest(BankingSystem.InServices.ProxyToBankingSystemWebService.HeaderLogin HeaderLogin) {
             this.HeaderLogin = HeaderLogin;
         }
     }
@@ -228,79 +228,79 @@ namespace Job.InServices.ProxyToJobWebService {
     public partial class GetOurCatalogueByAuthenticatingResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Job.InServices.ProxyToJobWebService.MusicType[] GetOurCatalogueByAuthenticatingResult;
+        public BankingSystem.InServices.ProxyToBankingSystemWebService.MusicType[] GetOurCatalogueByAuthenticatingResult;
         
         public GetOurCatalogueByAuthenticatingResponse() {
         }
         
-        public GetOurCatalogueByAuthenticatingResponse(Job.InServices.ProxyToJobWebService.MusicType[] GetOurCatalogueByAuthenticatingResult) {
+        public GetOurCatalogueByAuthenticatingResponse(BankingSystem.InServices.ProxyToBankingSystemWebService.MusicType[] GetOurCatalogueByAuthenticatingResult) {
             this.GetOurCatalogueByAuthenticatingResult = GetOurCatalogueByAuthenticatingResult;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface JobWebServiceSoapChannel : Job.InServices.ProxyToJobWebService.JobWebServiceSoap, System.ServiceModel.IClientChannel {
+    public interface BankingSystemWebServiceSoapChannel : BankingSystem.InServices.ProxyToBankingSystemWebService.BankingSystemWebServiceSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class JobWebServiceSoapClient : System.ServiceModel.ClientBase<Job.InServices.ProxyToJobWebService.JobWebServiceSoap>, Job.InServices.ProxyToJobWebService.JobWebServiceSoap {
+    public partial class BankingSystemWebServiceSoapClient : System.ServiceModel.ClientBase<BankingSystem.InServices.ProxyToBankingSystemWebService.BankingSystemWebServiceSoap>, BankingSystem.InServices.ProxyToBankingSystemWebService.BankingSystemWebServiceSoap {
         
-        public JobWebServiceSoapClient() {
+        public BankingSystemWebServiceSoapClient() {
         }
         
-        public JobWebServiceSoapClient(string endpointConfigurationName) : 
+        public BankingSystemWebServiceSoapClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public JobWebServiceSoapClient(string endpointConfigurationName, string remoteAddress) : 
+        public BankingSystemWebServiceSoapClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public JobWebServiceSoapClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public BankingSystemWebServiceSoapClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public JobWebServiceSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public BankingSystemWebServiceSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public Job.InServices.ProxyToJobWebService.MusicType[] GetOurCatalogue() {
+        public BankingSystem.InServices.ProxyToBankingSystemWebService.MusicType[] GetOurCatalogue() {
             return base.Channel.GetOurCatalogue();
         }
         
-        public System.Threading.Tasks.Task<Job.InServices.ProxyToJobWebService.MusicType[]> GetOurCatalogueAsync() {
+        public System.Threading.Tasks.Task<BankingSystem.InServices.ProxyToBankingSystemWebService.MusicType[]> GetOurCatalogueAsync() {
             return base.Channel.GetOurCatalogueAsync();
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Job.InServices.ProxyToJobWebService.GetOurCatalogueByAuthenticatingResponse Job.InServices.ProxyToJobWebService.JobWebServiceSoap.GetOurCatalogueByAuthenticating(Job.InServices.ProxyToJobWebService.GetOurCatalogueByAuthenticatingRequest request) {
+        BankingSystem.InServices.ProxyToBankingSystemWebService.GetOurCatalogueByAuthenticatingResponse BankingSystem.InServices.ProxyToBankingSystemWebService.BankingSystemWebServiceSoap.GetOurCatalogueByAuthenticating(BankingSystem.InServices.ProxyToBankingSystemWebService.GetOurCatalogueByAuthenticatingRequest request) {
             return base.Channel.GetOurCatalogueByAuthenticating(request);
         }
         
-        public Job.InServices.ProxyToJobWebService.MusicType[] GetOurCatalogueByAuthenticating(Job.InServices.ProxyToJobWebService.HeaderLogin HeaderLogin) {
-            Job.InServices.ProxyToJobWebService.GetOurCatalogueByAuthenticatingRequest inValue = new Job.InServices.ProxyToJobWebService.GetOurCatalogueByAuthenticatingRequest();
+        public BankingSystem.InServices.ProxyToBankingSystemWebService.MusicType[] GetOurCatalogueByAuthenticating(BankingSystem.InServices.ProxyToBankingSystemWebService.HeaderLogin HeaderLogin) {
+            BankingSystem.InServices.ProxyToBankingSystemWebService.GetOurCatalogueByAuthenticatingRequest inValue = new BankingSystem.InServices.ProxyToBankingSystemWebService.GetOurCatalogueByAuthenticatingRequest();
             inValue.HeaderLogin = HeaderLogin;
-            Job.InServices.ProxyToJobWebService.GetOurCatalogueByAuthenticatingResponse retVal = ((Job.InServices.ProxyToJobWebService.JobWebServiceSoap)(this)).GetOurCatalogueByAuthenticating(inValue);
+            BankingSystem.InServices.ProxyToBankingSystemWebService.GetOurCatalogueByAuthenticatingResponse retVal = ((BankingSystem.InServices.ProxyToBankingSystemWebService.BankingSystemWebServiceSoap)(this)).GetOurCatalogueByAuthenticating(inValue);
             return retVal.GetOurCatalogueByAuthenticatingResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Job.InServices.ProxyToJobWebService.GetOurCatalogueByAuthenticatingResponse> Job.InServices.ProxyToJobWebService.JobWebServiceSoap.GetOurCatalogueByAuthenticatingAsync(Job.InServices.ProxyToJobWebService.GetOurCatalogueByAuthenticatingRequest request) {
+        System.Threading.Tasks.Task<BankingSystem.InServices.ProxyToBankingSystemWebService.GetOurCatalogueByAuthenticatingResponse> BankingSystem.InServices.ProxyToBankingSystemWebService.BankingSystemWebServiceSoap.GetOurCatalogueByAuthenticatingAsync(BankingSystem.InServices.ProxyToBankingSystemWebService.GetOurCatalogueByAuthenticatingRequest request) {
             return base.Channel.GetOurCatalogueByAuthenticatingAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Job.InServices.ProxyToJobWebService.GetOurCatalogueByAuthenticatingResponse> GetOurCatalogueByAuthenticatingAsync(Job.InServices.ProxyToJobWebService.HeaderLogin HeaderLogin) {
-            Job.InServices.ProxyToJobWebService.GetOurCatalogueByAuthenticatingRequest inValue = new Job.InServices.ProxyToJobWebService.GetOurCatalogueByAuthenticatingRequest();
+        public System.Threading.Tasks.Task<BankingSystem.InServices.ProxyToBankingSystemWebService.GetOurCatalogueByAuthenticatingResponse> GetOurCatalogueByAuthenticatingAsync(BankingSystem.InServices.ProxyToBankingSystemWebService.HeaderLogin HeaderLogin) {
+            BankingSystem.InServices.ProxyToBankingSystemWebService.GetOurCatalogueByAuthenticatingRequest inValue = new BankingSystem.InServices.ProxyToBankingSystemWebService.GetOurCatalogueByAuthenticatingRequest();
             inValue.HeaderLogin = HeaderLogin;
-            return ((Job.InServices.ProxyToJobWebService.JobWebServiceSoap)(this)).GetOurCatalogueByAuthenticatingAsync(inValue);
+            return ((BankingSystem.InServices.ProxyToBankingSystemWebService.BankingSystemWebServiceSoap)(this)).GetOurCatalogueByAuthenticatingAsync(inValue);
         }
         
-        public Job.InServices.ProxyToJobWebService.MusicType[] GetCatalogue() {
+        public BankingSystem.InServices.ProxyToBankingSystemWebService.MusicType[] GetCatalogue() {
             return base.Channel.GetCatalogue();
         }
         
-        public System.Threading.Tasks.Task<Job.InServices.ProxyToJobWebService.MusicType[]> GetCatalogueAsync() {
+        public System.Threading.Tasks.Task<BankingSystem.InServices.ProxyToBankingSystemWebService.MusicType[]> GetCatalogueAsync() {
             return base.Channel.GetCatalogueAsync();
         }
     }

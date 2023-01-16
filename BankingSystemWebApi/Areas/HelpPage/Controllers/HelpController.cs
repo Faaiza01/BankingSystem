@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using JobWebApi.Areas.HelpPage.ModelDescriptions;
-using JobWebApi.Areas.HelpPage.Models;
+using BankingSystemWebApi.Areas.HelpPage.ModelDescriptions;
+using BankingSystemWebApi.Areas.HelpPage.Models;
 
-namespace JobWebApi.Areas.HelpPage.Controllers
+namespace BankingSystemWebApi.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

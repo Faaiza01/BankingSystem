@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace JobWebApi.Areas.HelpPage.ModelDescriptions
+namespace BankingSystemWebApi.Areas.HelpPage.ModelDescriptions
 {
     public interface IModelDocumentationProvider
     {

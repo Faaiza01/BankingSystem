@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Job.Services.Models
+namespace BankingSystem.Services.Models
 {
     public class MyTransactionsDto
     {

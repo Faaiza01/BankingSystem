@@ -1,65 +1,28 @@
-﻿using Job.Data.DAO;
-using Job.Data.IDAO;
-using Job.Data.Models.Domain;
-using Job.Data.Repository;
-using Job.Services.IService;
-using Job.Services.Models;
+﻿using BankingSystem.Data.DAO;
+using BankingSystem.Data.IDAO;
+using BankingSystem.Data.Models.Domain;
+using BankingSystem.Data.Repository;
+using BankingSystem.Services.IService;
+using BankingSystem.Services.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Job.Services.Service
+namespace BankingSystem.Services.Service
 {
-    public class JobService : IJobService
+    public class BankingSystemService : IBankingSystemService
     {
-        private IJobDAO JobDAO;
+        private IBankingSystemDAO BankingSystemDAO;
   
-        public JobService()
+        public BankingSystemService()
         {
-            JobDAO = new JobDAO();
-        }
-
-        public void DeleteJob(int id)
-        {
-            using (var context = new JobContext())
-            {
-                JobDAO.DeleteJob(context, id);
-            }
-        }
-
-        public void SaveJob(SavedJobs savedJobs)
-        {
-            using (var context = new JobContext())
-            {
-                JobDAO.SaveJob(context, savedJobs);
-            }
-        }
-
-        public void AddJob(PostJobDto postJobDto, string userId)
-        {      
-            Employer newEmployer = new Employer()
-            {
-                JobTitle = postJobDto.JobTitle,
-                JobDescription = postJobDto.JobDescription,
-                JobCategory = postJobDto.JobCategory,
-                Salary = postJobDto.Salary,
-                CompanyName = postJobDto.CompanyName,
-                CompanyAddress = postJobDto.CompanyAddress,
-                ComapanyEmail = postJobDto.ComapanyEmail,
-                CompanyWebsite = postJobDto.CompanyWebsite
-            };
-         
-            using (var context = new JobContext())
-            {   
-                JobDAO.AddJob(context, newEmployer);//Add job
-                context.SaveChanges();
-            }  
+            BankingSystemDAO = new BankingSystemDAO();
         }
 
         public void DepositCash(DepositCashDto depositCashDto, string userId)
         {
          
 
-            using (var context = new JobContext())
+            using (var context = new BankingSystemContext())
             {
                 var transactionTo = context.AppUsers.Where(x => x.AccountNumber == depositCashDto.AccountNumber).Select(x => x.IdentityId).FirstOrDefault();
                 Transaction transaction = new Transaction()
@@ -70,29 +33,29 @@ namespace Job.Services.Service
                     TransactionType = "Deposit",
                     TransactionDate = System.DateTime.Now
                 };
-                JobDAO.DepositCash(context, transaction);//Add job
+                BankingSystemDAO.DepositCash(context, transaction);//Add BankingSystem
                 context.SaveChanges();
             }
         }
 
         public IList<MyTransactionsDto> GetTransactionHistory(string userId)
         {
-            using (var context = new JobContext())
+            using (var context = new BankingSystemContext())
             {
-                return JobDAO.GetTransactionHistory(context, userId);
+                return BankingSystemDAO.GetTransactionHistory(context, userId);
             }
         }
 
         public IList<MyTransactionsDto> GetAdminTransactionHistory()
         {
-            using (var context = new JobContext())
+            using (var context = new BankingSystemContext())
             {
-                return JobDAO.GetAdminTransactionHistory(context);
+                return BankingSystemDAO.GetAdminTransactionHistory(context);
             }
         }
         public void WithDrawCash(DepositCashDto depositCashDto, string userId)
         {
-            using (var context = new JobContext())
+            using (var context = new BankingSystemContext())
             {
                 Transaction transaction = new Transaction()
                 {
@@ -101,83 +64,48 @@ namespace Job.Services.Service
                     TransactionType = "WithDraw",
                     TransactionDate = System.DateTime.Now
                 };
-                JobDAO.WithDrawCash(context, transaction);//Add job
+                BankingSystemDAO.WithDrawCash(context, transaction);//Add BankingSystem
                 context.SaveChanges();
             }
-        }
-        public void ApplyJob(AppliedJobs appliedJobs)
-        {         
-            using (var context = new JobContext())
-            {   
-                JobDAO.ApplyJob(context, appliedJobs);//Apply for a job
-                context.SaveChanges();
-            }   
         }
 
         public void AddUser(App_User app_User)
         {
 
-            using (var context = new JobContext())
+            using (var context = new BankingSystemContext())
             {   
-                JobDAO.AddUser(context, app_User);//Add user
+                BankingSystemDAO.AddUser(context, app_User);//Add user
                 context.SaveChanges();
             }   
         }
 
-        public void EditJob(PostJobDto postJobDto, string userId, int id)
-        {
-            using (var context = new JobContext())
-            {
-                Employer employer =new Employer();
-                employer.JobTitle = postJobDto.JobTitle;
-                employer.JobDescription = postJobDto.JobDescription;
-                employer.JobCategory = postJobDto.JobCategory;
-                employer.Salary = postJobDto.Salary;
-                employer.CompanyName = postJobDto.CompanyName;
-                employer.CompanyAddress = postJobDto.CompanyAddress;
-                employer.ComapanyEmail = postJobDto.ComapanyEmail;
-                employer.CompanyWebsite = postJobDto.CompanyWebsite;
-
-                JobDAO.EditJob(context, employer, id);//Update existing job         
-                context.SaveChanges();
-            }
-        }
-
-        public Employer GetJob(int id)
-        {
-            using (var context = new JobContext())
-            {
-                return JobDAO.GetJob(context, id);
-            }
-        }
-
         public App_User GetUserData(string id)
         {
-            using (var context = new JobContext())
+            using (var context = new BankingSystemContext())
             {
-                return JobDAO.GetUserData(context, id);
+                return BankingSystemDAO.GetUserData(context, id);
             }
         }
 
         public App_User GetAdminData()
         {
-            using (var context = new JobContext())
+            using (var context = new BankingSystemContext())
             {
-                return JobDAO.GetAdminData(context);
+                return BankingSystemDAO.GetAdminData(context);
             }
         }
         public void RemoveUser(string id)
         {
-            using (var context = new JobContext())
+            using (var context = new BankingSystemContext())
             {
-                JobDAO.RemoveUser(context, id);
+                BankingSystemDAO.RemoveUser(context, id);
             }
         }
         public IList<App_User> GetUsers()
         {
-            using (var context = new JobContext())
+            using (var context = new BankingSystemContext())
             {
-                return JobDAO.GetUsers(context);
+                return BankingSystemDAO.GetUsers(context);
             }
         }
     }

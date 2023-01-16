@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Job.Services.Models.MyTransactionsDto>
+﻿@model IEnumerable<BankingSystem.Services.Models.MyTransactionsDto>
 
 @{
     ViewBag.Title = "Transaction History";
@@ -128,7 +128,7 @@
     @foreach (var item in Model)
     {
     <li class="table-row list">
-        @*<div class="col col-2" data-label="Job Id"> @item.AccountNumber</div>*@
+        @*<div class="col col-2" data-label="BankingSystem Id"> @item.AccountNumber</div>*@
 
         <div class="col col-2" data-label="Transaction By">@item.TransactionBy</div>
         <div class="col col-2" data-label="Transaction To">@item.TransactionTo</div>
@@ -138,12 +138,12 @@
 
 
         @*<div class="col col-2" data-label="Amount">
-            <div class="button"><a href="#" class="btntext alink"> @Html.ActionLink("Edit", "EditJob", new { id =
-                item.JobId }) </a></div>
+            <div class="button"><a href="#" class="btntext alink"> @Html.ActionLink("Edit", "EditBankingSystem", new { id =
+                item.BankingSystemId }) </a></div>
         </div>
         <div class="col col-2" data-label="Amount">
-            <div class="buttonred"><a href="#" class="btntext alink">@Html.ActionLink("Delete", "DeleteJob", new { id =
-                item.JobId })</a></div>
+            <div class="buttonred"><a href="#" class="btntext alink">@Html.ActionLink("Delete", "DeleteBankingSystem", new { id =
+                item.BankingSystemId })</a></div>
         </div>*@
 
     </li>

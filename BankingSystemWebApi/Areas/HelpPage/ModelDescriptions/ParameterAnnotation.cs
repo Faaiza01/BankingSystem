@@ -1,6 +1,6 @@
 using System;
 
-namespace JobWebApi.Areas.HelpPage.ModelDescriptions
+namespace BankingSystemWebApi.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterAnnotation
     {

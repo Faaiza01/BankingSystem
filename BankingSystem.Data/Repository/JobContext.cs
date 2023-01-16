@@ -4,20 +4,17 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Job.Data.Models.Domain;
+using BankingSystem.Data.Models.Domain;
 
-namespace Job.Data.Repository
+namespace BankingSystem.Data.Repository
 {
-    public class JobContext: DbContext
+    public class BankingSystemContext: DbContext
     {
-        public JobContext() : base("JobContext")
+        public BankingSystemContext() : base("BankingSystemContext")
         {
-            Database.SetInitializer(new JobInitialiser());
+            Database.SetInitializer(new BankingSystemInitialiser());
         }
         public DbSet<App_User> AppUsers { get; set; }
-        public DbSet<Employer> Employers { get; set; }
-        public DbSet<AppliedJobs> AppliedJobs { get; set; }
-        public DbSet<SavedJobs> SavedJobs { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
 
     }

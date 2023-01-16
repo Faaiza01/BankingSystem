@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Job.Data.Models.Domain
+namespace BankingSystem.Data.Models.Domain
 {
     public class Transaction
     {

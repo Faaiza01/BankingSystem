@@ -65,23 +65,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppliedJobsList.cs" />
-    <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="DAO\JobDAO.cs" />
-    <Compile Include="EditProfileDto.cs" />
-    <Compile Include="IDAO\IUserDAO.cs" />
     <Compile Include="IDAO\IJobDAO.cs" />
-    <Compile Include="ListOfApplicantsDto.cs" />
-    <Compile Include="Models\Domain\AppliedJobs.cs" />
     <Compile Include="Models\Domain\App_User.cs" />
-    <Compile Include="Models\Domain\Employer.cs" />
-    <Compile Include="Models\Domain\SavedJobs.cs" />
     <Compile Include="Models\Domain\Transaction.cs" />
     <Compile Include="MyTransactionsDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\JobContext.cs" />
     <Compile Include="Repository\JobInitialiser.cs" />
-    <Compile Include="SavedJobList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace JobWebServices
+namespace BankingSystemWebServices
 {
     public partial class Contact
     {
