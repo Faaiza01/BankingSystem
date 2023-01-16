@@ -73,5 +73,12 @@ namespace Job.Controllers
                 return View();
             }
         }
+        [HttpGet]
+        public ActionResult TransactionHistory()
+        {
+            var userId = User.Identity.GetUserId();
+            ViewBag.history = JobService.GetTransactionHistory(userId);
+            return View(ViewBag.history);
+        }
     }
 }

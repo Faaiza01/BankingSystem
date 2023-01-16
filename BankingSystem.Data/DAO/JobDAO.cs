@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using Job.Services.Models;
 
 namespace Job.Data.DAO
 {
@@ -22,9 +23,14 @@ namespace Job.Data.DAO
         {
             return context.AppUsers.ToList().Find(b => b.IdentityId == id);
         }
+
+        public App_User GetAdminData(JobContext context)
+        {
+            return context.AppUsers.ToList().Find(b => b.Role == "Admin");
+        }
         public IList<App_User> GetUsers(JobContext context)
         {
-            return context.AppUsers.ToList();
+            return context.AppUsers.Where(x=> x.Role == "Customer").ToList();
         }
         public void AddJob(JobContext context, Employer employer)
         {
@@ -56,6 +62,34 @@ namespace Job.Data.DAO
             var transactionBy = context.AppUsers.Where(x => x.IdentityId == transaction.TransactionBy).FirstOrDefault();
             context.AppUsers.Find(transactionBy.UserId).CurrentBalance = transactionBy.CurrentBalance - transaction.AmountToBeProcessed;
             context.SaveChanges();
+        }
+
+        public List<MyTransactionsDto> GetTransactionHistory(JobContext context, string id)
+        {
+            List<MyTransactionsDto> myTransactionsDtos = new List<MyTransactionsDto>();
+
+            var myTransactions = context.Transactions.Where(b => b.TransactionBy == id).ToList();
+            var transactionBy = context.AppUsers.Where(b => b.IdentityId == id).FirstOrDefault();
+
+            foreach (var item in myTransactions)
+            {
+                App_User transactionTo = new App_User();
+                if (item.TransactionTo!=null)
+                {
+                     transactionTo = context.AppUsers.Where(b => b.IdentityId == item.TransactionTo).SingleOrDefault();
+                }
+
+                MyTransactionsDto myTransactionsDto = new MyTransactionsDto();
+                myTransactionsDto.AccountNumber = transactionTo.AccountNumber;
+                myTransactionsDto.AmountToBeProcessed = item.AmountToBeProcessed;
+                myTransactionsDto.TransactionType = item.TransactionType;
+                myTransactionsDto.TransactionDate = item.TransactionDate;
+                myTransactionsDto.CurrentBalance = transactionBy.CurrentBalance;
+                myTransactionsDto.TransactionTo = transactionTo?.FirstName + " " + transactionTo?.LastName;
+                myTransactionsDto.TransactionBy = transactionBy.FirstName + " " + transactionBy.LastName;
+                myTransactionsDtos.Add(myTransactionsDto);
+            }
+            return myTransactionsDtos;
         }
 
         public void WithDraw(JobContext context, Employer employer)

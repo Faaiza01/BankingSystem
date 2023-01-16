@@ -75,6 +75,14 @@ namespace Job.Services.Service
             }
         }
 
+        public IList<MyTransactionsDto> GetTransactionHistory(string userId)
+        {
+            using (var context = new JobContext())
+            {
+                return JobDAO.GetTransactionHistory(context, userId);
+            }
+        }
+
         public void WithDrawCash(DepositCashDto depositCashDto, string userId)
         {
             using (var context = new JobContext())
@@ -141,6 +149,14 @@ namespace Job.Services.Service
             using (var context = new JobContext())
             {
                 return JobDAO.GetUserData(context, id);
+            }
+        }
+
+        public App_User GetAdminData()
+        {
+            using (var context = new JobContext())
+            {
+                return JobDAO.GetAdminData(context);
             }
         }
         public void RemoveUser(string id)
