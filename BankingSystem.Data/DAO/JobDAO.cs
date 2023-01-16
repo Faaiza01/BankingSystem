@@ -88,22 +88,26 @@ namespace BankingSystem.Data.DAO
                 App_User transactionTo = new App_User();
                 if (item.TransactionTo != null)
                 {
-                    transactionTo = context.AppUsers.Where(b => b.IdentityId == item.TransactionTo).SingleOrDefault();
+                    transactionTo = context.AppUsers.Where(b => b.IdentityId == item.TransactionTo).FirstOrDefault();
+                    if (transactionTo == null)
+                        continue;
                 }
 
                 App_User transactionBy = new App_User();
                 if (item.TransactionBy != null)
                 {
-                    transactionBy = context.AppUsers.Where(b => b.IdentityId == item.TransactionBy).SingleOrDefault();
+                    transactionBy = context.AppUsers.Where(t => t.IdentityId == item.TransactionBy).FirstOrDefault();
+                    if (transactionBy == null)
+                        continue;
                 }
                 MyTransactionsDto myTransactionsDto = new MyTransactionsDto();
-                myTransactionsDto.AccountNumber = transactionTo.AccountNumber;
+                myTransactionsDto.AccountNumber = transactionTo?.AccountNumber;
                 myTransactionsDto.AmountToBeProcessed = item.AmountToBeProcessed;
                 myTransactionsDto.TransactionType = item.TransactionType;
                 myTransactionsDto.TransactionDate = item.TransactionDate;
-                myTransactionsDto.CurrentBalance = transactionBy.CurrentBalance;
+                myTransactionsDto.CurrentBalance = transactionBy?.CurrentBalance;
                 myTransactionsDto.TransactionTo = transactionTo?.FirstName + " " + transactionTo?.LastName;
-                myTransactionsDto.TransactionBy = transactionBy.FirstName + " " + transactionBy.LastName;
+                myTransactionsDto.TransactionBy = transactionBy?.FirstName + " " + transactionBy?.LastName;
                 myTransactionsDtos.Add(myTransactionsDto);
             }
             return myTransactionsDtos;
